@@ -37,6 +37,20 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+HEROKU NOTES
+----------------
+You may encounter some issues if you want to deploy fuse-react to heroku, here is the solution:
+
+// We need to use the mars/create-react-app buildpack:
+heroku buildpacks:set mars/create-react-app
+
+// the next build will be created with this official pack.
+
+// We need to install devDependencies:
+heroku config:set NPM_CONFIG_PRODUCTION=false
+push skeleton branch to master of heroku
+git push heroku skeleton:master
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
