@@ -1,41 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Semetey Internship project
+### Tech Stack (March 30 2022)
+* [ReactJS](https://reactjs.org/)
+* [Material UI](https://mui.com/)
+* [Heroku] (https://devcenter.heroku.com/)
+* [Firebase] (https://firebase.google.com/docs)
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm run test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### GitHub
+# How to create pull request (PR).
+  1. Pull latest version of main:
+      ```
+      $ git checkout main
+      $ git pull origin main
+      $ git checkout -b <your branch name>
+      ```
+  2. After finishing the task:
+      ```
+      $ git add .
+      $ git commit -m "Briefly describe what you did."
+      $ git push origin <your branch name>
+  3. Then go to https://github.com/tagaism/semetey.
+  4. Assign all members to code-review.
+  5. Create PR to 'main' branch.
+  6. Inform team in Slack.
+  7. DO NOT MERGE! Wait for feedback.
+  8. If your PR is returned, do not create new branch or new PR.
+      Do all fixings on current branch. Then,
+      ```
+      $ git add .
+      $ git commit -m "Made fixings"
+      $ git push
+      ```
+  9. GO TO -> step 6.
+  10. Remember, _>>>> DO NOT MERGE!!<<<<_
+### How to do a code review
+  1. Be familiar with the issue.
+  2. See the code if it is clean, easy to read.
+  3. Pull the reviewing branch to you local machine and try to run, and check if it works properly.
+  4. Make comments of what you notice or demand correction(if necessary).
+  5. Inform person who created PR.
+  6. Be nice to people
 
 HEROKU NOTES
 ----------------
