@@ -18,7 +18,7 @@
       $ git add .
       $ git commit -m "Briefly describe what you did."
       $ git push origin <your branch name>
-  3. Then go to https://github.com/tagaism/semetey.
+  3. Then go to https://github.com/tagaism/semetey/pulls
   4. Assign all members to code-review.
   5. Create PR to 'main' branch.
   6. Inform team in Slack.
