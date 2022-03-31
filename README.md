@@ -11,13 +11,13 @@
       ```
       $ git checkout main
       $ git pull origin main
-      $ git checkout -b <your branch name>
+      $ git checkout -b <yourName>/<your_branch_name>
       ```
   2. After finishing the task:
       ```
       $ git add .
       $ git commit -m "Briefly describe what you did."
-      $ git push origin <your branch name>
+      $ git push origin <yourName>/<your_branch_name>
   3. Then go to https://github.com/tagaism/semetey/pulls
   4. Assign all members to code-review.
   5. Create PR to 'main' branch.
@@ -30,7 +30,7 @@
       ```
       $ git add .
       $ git commit -m "Made fixings"
-      $ git push
+      $ git push origin <yourName>/<your_branch_name>
       ```
   9. GO TO -> step 6.
   10. Remember, _>>>> DO NOT MERGE!!<<<<_
