@@ -21,9 +21,11 @@
   3. Then go to https://github.com/tagaism/semetey/pulls
   4. Assign all members to code-review.
   5. Create PR to 'main' branch.
-  6. Inform team in Slack.
-  7. DO NOT MERGE! Wait for feedback.
-  8. If your PR is returned, do not create new branch or new PR.
+  6. Name your PR with task name.
+  7. Add link to task from JIRA to description.
+  8. Inform team in Slack.
+  9. DO NOT MERGE! Wait for feedback.
+  10. If your PR is returned, do not create new branch or new PR.
       Do all fixings on current branch. Then,
       ```
       $ git add .
