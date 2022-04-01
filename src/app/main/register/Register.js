@@ -7,9 +7,7 @@ import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import Auth0RegisterTab from './tabs/Auth0RegisterTab';
 import FirebaseRegisterTab from './tabs/FirebaseRegisterTab';
-// import JWTRegisterTab from './tabs/JWTRegisterTab';
 
 const Root = styled('div')(({ theme }) => ({
   background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${darken(
@@ -75,17 +73,6 @@ function Register() {
               variant="fullWidth"
               className="w-full mb-32"
             >
-              {/* <Tab
-                icon={
-                  <img
-                    className="h-40 p-4 bg-black rounded-12"
-                    src="assets/images/logos/jwt.svg"
-                    alt="firebase"
-                  />
-                }
-                className="min-w-0"
-                label="JWT"
-              /> */}
               <Tab
                 icon={
                   <img className="h-40" src="assets/images/logos/firebase.svg" alt="firebase" />
@@ -93,17 +80,9 @@ function Register() {
                 className="min-w-0"
                 label="Firebase"
               />
-              {/* <Tab
-                icon={<img className="h-40" src="assets/images/logos/auth0.svg" alt="auth0" />}
-                className="min-w-0"
-                label="Auth0"
-              /> */}
             </Tabs>
             <FirebaseRegisterTab />
 
-            {/* {selectedTab === 0 && <JWTRegisterTab />}
-            {selectedTab === 1 && <FirebaseRegisterTab />}
-            {selectedTab === 2 && <Auth0RegisterTab />} */}
           </CardContent>
 
           <div className="flex flex-col items-center justify-center pb-32">
