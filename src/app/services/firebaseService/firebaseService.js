@@ -40,11 +40,12 @@ class FirebaseService {
     });
   };
 
-  updateUserData = (user) => {
+  updateUserData = async (user) => {
     if (!firebase.apps.length) {
       return false;
     }
-    return this.db.ref(`users/${user.uid}`).set(user);
+    await this.db.ref(`users/${user.uid}`).set(user);
+    return true;
   };
 
   onAuthStateChanged = (callback) => {
