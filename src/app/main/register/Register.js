@@ -28,11 +28,6 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 function Register() {
-  const [selectedTab, setSelectedTab] = useState(0);
-
-  function handleTabChange(event, value) {
-    setSelectedTab(value);
-  }
 
   return (
     <Root className="flex flex-col flex-auto items-center justify-center flex-shrink-0 p-16 md:p-24">
@@ -67,20 +62,6 @@ function Register() {
               </div>
             </motion.div>
 
-            <Tabs
-              value={selectedTab}
-              onChange={handleTabChange}
-              variant="fullWidth"
-              className="w-full mb-32"
-            >
-              <Tab
-                icon={
-                  <img className="h-40" src="assets/images/logos/firebase.svg" alt="firebase" />
-                }
-                className="min-w-0"
-                label="Firebase"
-              />
-            </Tabs>
             <FirebaseRegisterTab />
 
           </CardContent>
@@ -115,8 +96,8 @@ function Register() {
               animate={{ opacity: 1, transition: { delay: 0.3 } }}
             >
               <Typography variant="subtitle1" color="inherit" className="mt-32">
-                Powerful and professional admin template for Web Applications, CRM, CMS, Admin
-                Panels and more.
+                The easy platform for fleets.<br />
+                All-in-one platform to organize documents, digitize large volumes of physical papers and automate several workflow processes.
               </Typography>
             </motion.div>
           </div>
