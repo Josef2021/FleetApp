@@ -652,181 +652,181 @@ const projectDashboardAppDB = {
 				}
 			}
 		},
-		{
-			id: 'widget6',
-			title: 'Task Distribution',
-			ranges: {
-				TW: 'This Week',
-				LW: 'Last Week',
-				'2W': '2 Weeks Ago'
-			},
-			currentRange: 'TW',
-			mainChart: {
-				series: {
-					TW: [15, 20, 38, 27],
-					LW: [19, 16, 42, 23],
-					'2W': [18, 17, 40, 25]
-				},
-				options: {
-					series: [76, 67, 61],
-					chart: {
-						height: '100%',
-						type: 'polarArea'
-					},
-					stroke: {
-						width: 1,
-						colors: undefined
-					},
-					fill: {
-						type: 'solid',
-						opacity: 0.7
-					},
-					legend: {
-						position: 'bottom'
-					},
-					theme: {
-						monochrome: {
-							enabled: true,
-							shadeTo: 'light',
-							shadeIntensity: 0.65
-						}
-					},
-					labels: ['Frontend', 'Backend', 'API', 'Issues']
-				}
-			},
-			footerLeft: {
-				title: 'Tasks Added',
-				count: {
-					'2W': 487,
-					LW: 526,
-					TW: 594
-				}
-			},
-			footerRight: {
-				title: 'Tasks Completed',
-				count: {
-					'2W': 193,
-					LW: 260,
-					TW: 287
-				}
-			}
-		},
-		{
-			id: 'widget7',
-			title: 'Schedule',
-			currentRange: 'T',
-			ranges: {
-				T: 'Today',
-				TM: 'Tomorrow'
-			},
-			schedule: {
-				T: [
-					{
-						id: 1,
-						title: 'Group Meeting',
-						time: 'In 32 minutes'
-					},
-					{
-						id: 2,
-						title: 'Coffee Break',
-						time: '10:30 AM'
-					},
-					{
-						id: 3,
-						title: 'Public Beta Release',
-						time: '11:00 AM'
-					},
-					{
-						id: 4,
-						title: 'Lunch',
-						time: '12:10 PM'
-					},
-					{
-						id: 5,
-						title: 'Dinner with David',
-						time: '17:30 PM'
-					},
-					{
-						id: 6,
-						title: "Jane's Birthday Party",
-						time: '19:30 PM'
-					},
-					{
-						id: 7,
-						title: "Overseer's Retirement Party",
-						time: '21:30 PM'
-					}
-				],
-				TM: [
-					{
-						id: 1,
-						title: 'Marketing Meeting',
-						time: '09:00 AM'
-					},
-					{
-						id: 2,
-						title: 'Public Announcement',
-						time: '11:00 AM'
-					},
-					{
-						id: 3,
-						title: 'Lunch',
-						time: '12:10 PM'
-					},
-					{
-						id: 4,
-						title: 'Meeting with Beta Testers',
-						time: '15:00 AM'
-					},
-					{
-						id: 5,
-						title: 'Live Stream',
-						time: '17:30 PM'
-					},
-					{
-						id: 6,
-						title: 'Release Party',
-						time: '19:30 PM'
-					},
-					{
-						id: 7,
-						title: "CEO's Party",
-						time: '22:30 PM'
-					}
-				]
-			}
-		},
-		{
-			id: 'widget8',
-			title: 'Budget Distribution',
-			mainChart: {
-				series: [12, 17, 28, 25, 15],
-				options: {
-					chart: {
-						height: '100%',
-						type: 'pie'
-					},
-					stroke: {
-						width: 1,
-						colors: undefined
-					},
-					fill: {
-						opacity: 1
-					},
-					legend: {
-						position: 'bottom'
-					},
-					theme: {
-						monochrome: {
-							enabled: true,
-							shadeTo: 'light',
-							shadeIntensity: 0.65
-						}
-					},
-					labels: ['Wireframing', 'Design', 'Coding', 'Marketing', 'Extra']
-				}
-			}
-		},
+		// {
+		// 	id: 'widget6',
+		// 	title: 'Task Distribution',
+		// 	ranges: {
+		// 		TW: 'This Week',
+		// 		LW: 'Last Week',
+		// 		'2W': '2 Weeks Ago'
+		// 	},
+		// 	currentRange: 'TW',
+		// 	mainChart: {
+		// 		series: {
+		// 			TW: [15, 20, 38, 27],
+		// 			LW: [19, 16, 42, 23],
+		// 			'2W': [18, 17, 40, 25]
+		// 		},
+		// 		options: {
+		// 			series: [76, 67, 61],
+		// 			chart: {
+		// 				height: '100%',
+		// 				type: 'polarArea'
+		// 			},
+		// 			stroke: {
+		// 				width: 1,
+		// 				colors: undefined
+		// 			},
+		// 			fill: {
+		// 				type: 'solid',
+		// 				opacity: 0.7
+		// 			},
+		// 			legend: {
+		// 				position: 'bottom'
+		// 			},
+		// 			theme: {
+		// 				monochrome: {
+		// 					enabled: true,
+		// 					shadeTo: 'light',
+		// 					shadeIntensity: 0.65
+		// 				}
+		// 			},
+		// 			labels: ['Frontend', 'Backend', 'API', 'Issues']
+		// 		}
+		// 	},
+		// 	footerLeft: {
+		// 		title: 'Tasks Added',
+		// 		count: {
+		// 			'2W': 487,
+		// 			LW: 526,
+		// 			TW: 594
+		// 		}
+		// 	},
+		// 	footerRight: {
+		// 		title: 'Tasks Completed',
+		// 		count: {
+		// 			'2W': 193,
+		// 			LW: 260,
+		// 			TW: 287
+		// 		}
+		// 	}
+		// },
+		// {
+		// 	id: 'widget7',
+		// 	title: 'Schedule',
+		// 	currentRange: 'T',
+		// 	ranges: {
+		// 		T: 'Today',
+		// 		TM: 'Tomorrow'
+		// 	},
+		// 	schedule: {
+		// 		T: [
+		// 			{
+		// 				id: 1,
+		// 				title: 'Group Meeting',
+		// 				time: 'In 32 minutes'
+		// 			},
+		// 			{
+		// 				id: 2,
+		// 				title: 'Coffee Break',
+		// 				time: '10:30 AM'
+		// 			},
+		// 			{
+		// 				id: 3,
+		// 				title: 'Public Beta Release',
+		// 				time: '11:00 AM'
+		// 			},
+		// 			{
+		// 				id: 4,
+		// 				title: 'Lunch',
+		// 				time: '12:10 PM'
+		// 			},
+		// 			{
+		// 				id: 5,
+		// 				title: 'Dinner with David',
+		// 				time: '17:30 PM'
+		// 			},
+		// 			{
+		// 				id: 6,
+		// 				title: "Jane's Birthday Party",
+		// 				time: '19:30 PM'
+		// 			},
+		// 			{
+		// 				id: 7,
+		// 				title: "Overseer's Retirement Party",
+		// 				time: '21:30 PM'
+		// 			}
+		// 		],
+		// 		TM: [
+		// 			{
+		// 				id: 1,
+		// 				title: 'Marketing Meeting',
+		// 				time: '09:00 AM'
+		// 			},
+		// 			{
+		// 				id: 2,
+		// 				title: 'Public Announcement',
+		// 				time: '11:00 AM'
+		// 			},
+		// 			{
+		// 				id: 3,
+		// 				title: 'Lunch',
+		// 				time: '12:10 PM'
+		// 			},
+		// 			{
+		// 				id: 4,
+		// 				title: 'Meeting with Beta Testers',
+		// 				time: '15:00 AM'
+		// 			},
+		// 			{
+		// 				id: 5,
+		// 				title: 'Live Stream',
+		// 				time: '17:30 PM'
+		// 			},
+		// 			{
+		// 				id: 6,
+		// 				title: 'Release Party',
+		// 				time: '19:30 PM'
+		// 			},
+		// 			{
+		// 				id: 7,
+		// 				title: "CEO's Party",
+		// 				time: '22:30 PM'
+		// 			}
+		// 		]
+		// 	}
+		// },
+		// {
+		// 	id: 'widget8',
+		// 	title: 'Budget Distribution',
+		// 	mainChart: {
+		// 		series: [12, 17, 28, 25, 15],
+		// 		options: {
+		// 			chart: {
+		// 				height: '100%',
+		// 				type: 'pie'
+		// 			},
+		// 			stroke: {
+		// 				width: 1,
+		// 				colors: undefined
+		// 			},
+		// 			fill: {
+		// 				opacity: 1
+		// 			},
+		// 			legend: {
+		// 				position: 'bottom'
+		// 			},
+		// 			theme: {
+		// 				monochrome: {
+		// 					enabled: true,
+		// 					shadeTo: 'light',
+		// 					shadeIntensity: 0.65
+		// 				}
+		// 			},
+		// 			labels: ['Wireframing', 'Design', 'Coding', 'Marketing', 'Extra']
+		// 		}
+		// 	}
+		// },
 		{
 			id: 'widget9',
 			title: 'Spent',

@@ -1,12 +1,6 @@
-import ContactsAppConfig from "./contacts/ContactsAppConfig";
-import AnalyticsDashboardAppConfig from "./dashboards/analytics/AnalyticsDashboardAppConfig";
-import ProjectDashboardAppConfig from "./dashboards/project/ProjectDashboardAppConfig";
+import ContactsAppConfig from './contacts/ContactsAppConfig';
+import ProjectDashboardAppConfig from './dashboards/project/ProjectDashboardAppConfig';
 
-const appsConfigs = [
-  AnalyticsDashboardAppConfig,
-  ProjectDashboardAppConfig,
-
-  ContactsAppConfig,
-];
+const appsConfigs = [ProjectDashboardAppConfig, ContactsAppConfig];
 
 export default appsConfigs;
