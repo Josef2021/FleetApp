@@ -602,6 +602,14 @@ const navigationConfig = [
         icon: 'person_add',
       },
       {
+        id: 'forgot-password',
+        title: 'Forgot Password',
+        type: 'item',
+        url: '/forgot-password',
+        auth: authRoles.onlyGuest,
+        icon: 'person_add',
+      },
+      {
         id: 'logout',
         title: 'Logout',
         type: 'item',

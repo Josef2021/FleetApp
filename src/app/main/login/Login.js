@@ -73,7 +73,7 @@ function Login() {
             </div>
             <div>
               <span className="font-normal mr-8">Forgot your password?</span>
-              <Link className="font-normal" to="/pages/auth/forgot-password">
+              <Link className="font-normal" to="/forgot-password">
                 Reset Password
               </Link>
             </div>
