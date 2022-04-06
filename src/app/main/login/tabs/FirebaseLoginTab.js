@@ -121,7 +121,7 @@ function FirebaseLoginTab(props) {
           disabled={_.isEmpty(dirtyFields) || !isValid}
           value="firebase"
         >
-          Log in with Firebase
+          Login
         </Button>
       </form>
     </div>

@@ -16,10 +16,8 @@ import _ from '@lodash';
 const schema = yup.object().shape({
   displayName: yup.string().required('You must enter display name'),
   email: yup.string().email('You must enter a valid email').required('You must enter a email'),
-  password: yup
-    .string()
-    .required('Please enter your password.')
-    .min(8, 'Password is too short - should be 8 chars minimum.'),
+  password: yup.string().required('Please enter your password.').matches(
+    /^(?=.*[a-z]{1})(?=.*[A-Z]{1})(?=.*[0-9]{1})((?=.*[!@#$%^&*]){1})(?=.{8,})/, 'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character'),
   passwordConfirm: yup.string().oneOf([yup.ref('password'), null], 'Passwords must match'),
 });
 

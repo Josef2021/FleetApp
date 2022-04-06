@@ -41,7 +41,7 @@ function ForgotPassword2Page() {
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1, transition: { delay: 0.1 } }}
         >
-          <img className="w-128 mb-32" src="assets/images/logos/fuse.svg" alt="logo" />
+          <img className="w-128 mb-32" src="assets/images/logos/logo-black-emplosoft.png" alt="logo" />
         </motion.div>
 
         <motion.div
@@ -50,14 +50,14 @@ function ForgotPassword2Page() {
         >
           <Typography className="text-32 sm:text-44 font-semibold leading-tight">
             Welcome <br />
-            to the <br /> FUSE React!
+            to the <br /> EmploSoft!
           </Typography>
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.3 } }}>
           <Typography variant="subtitle1" className="mt-32 font-medium">
-            Powerful and professional admin template for Web Applications, CRM, CMS, Admin Panels
-            and more.
+            The easy platform for fleets. <br />
+            All-in-one platform to organize documents, digitize large volumes of physical papers and automate several workflow processes.
           </Typography>
         </motion.div>
       </div>
