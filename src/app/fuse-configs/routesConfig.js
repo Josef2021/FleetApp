@@ -34,7 +34,7 @@ const routes = [
     component: () => <FuseLoading />,
   },
   {
-    component: () => <Redirect to="/pages/errors/error-404" />,
+    component: () => <Redirect to="apps/dashboards/project" />,
   },
 ];
 
