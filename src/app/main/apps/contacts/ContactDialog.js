@@ -1,22 +1,23 @@
-import FuseUtils from '@fuse/utils/FuseUtils';
-import { yupResolver } from '@hookform/resolvers/yup';
-import AppBar from '@mui/material/AppBar';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import Icon from '@mui/material/Icon';
-import IconButton from '@mui/material/IconButton';
-import TextField from '@mui/material/TextField';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { useCallback, useEffect } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import FuseUtils from "@fuse/utils/FuseUtils";
+import { yupResolver } from "@hookform/resolvers/yup";
+import AppBar from "@mui/material/AppBar";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import Icon from "@mui/material/Icon";
+import { MenuItem } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import TextField from "@mui/material/TextField";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { useCallback, useEffect } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 
-import _ from '@lodash';
-import * as yup from 'yup';
+import _ from "@lodash";
+import * as yup from "yup";
 
 import {
   removeContact,
@@ -24,45 +25,47 @@ import {
   addContact,
   closeNewContactDialog,
   closeEditContactDialog,
-} from './store/contactsSlice';
+} from "./store/contactsSlice";
 
 const defaultValues = {
-  id: '',
-  name: '',
-  lastName: '',
-  avatar: 'assets/images/avatars/profile.jpg',
-  nickname: '',
-  company: '',
-  jobTitle: '',
-  email: '',
-  phone: '',
-  address: '',
-  birthday: '',
-  notes: '',
+  id: "",
+  brand: "",
+  model: "",
+  plateNumber: "",
+  assignedStatus: "",
+  vehicleStatus: "",
+  totalCost: "",
+  mileage: "",
 };
 
 /**
  * Form Validation Schema
  */
 const schema = yup.object().shape({
-  name: yup.string().required('You must enter a name'),
+  // name: yup.string().required("You must enter a name"),
+  plateNumber: yup.string().required("You must enter a plate number"),
 });
 
 function ContactDialog(props) {
   const dispatch = useDispatch();
-  const contactDialog = useSelector(({ contactsApp }) => contactsApp.contacts.contactDialog);
+  const contactDialog = useSelector(
+    ({ contactsApp }) => contactsApp.contacts.contactDialog
+  );
 
-  const { control, watch, reset, handleSubmit, formState, getValues } = useForm({
-    mode: 'onChange',
-    defaultValues,
-    resolver: yupResolver(schema),
-  });
+  const { control, watch, reset, handleSubmit, formState, getValues } = useForm(
+    {
+      mode: "onChange",
+      defaultValues,
+      resolver: yupResolver(schema),
+    }
+  );
 
   const { isValid, dirtyFields, errors } = formState;
 
-  const id = watch('id');
-  const name = watch('name');
-  const avatar = watch('avatar');
+  const id = watch("id");
+  const plateNumber = watch("plateNumber");
+  // const name = watch("name");
+  // const avatar = watch("avatar");
 
   /**
    * Initialize Dialog with Data
@@ -71,14 +74,14 @@ function ContactDialog(props) {
     /**
      * Dialog type: 'edit'
      */
-    if (contactDialog.type === 'edit' && contactDialog.data) {
+    if (contactDialog.type === "edit" && contactDialog.data) {
       reset({ ...contactDialog.data });
     }
 
     /**
      * Dialog type: 'new'
      */
-    if (contactDialog.type === 'new') {
+    if (contactDialog.type === "new") {
       reset({
         ...defaultValues,
         ...contactDialog.data,
@@ -100,7 +103,7 @@ function ContactDialog(props) {
    * Close Dialog
    */
   function closeComposeDialog() {
-    return contactDialog.type === 'edit'
+    return contactDialog.type === "edit"
       ? dispatch(closeEditContactDialog())
       : dispatch(closeNewContactDialog());
   }
@@ -109,7 +112,7 @@ function ContactDialog(props) {
    * Form Submit
    */
   function onSubmit(data) {
-    if (contactDialog.type === 'new') {
+    if (contactDialog.type === "new") {
       dispatch(addContact(data));
     } else {
       dispatch(updateContact({ ...contactDialog.data, ...data }));
@@ -124,11 +127,20 @@ function ContactDialog(props) {
     dispatch(removeContact(id));
     closeComposeDialog();
   }
+  const assignedStatusOptions = [
+    { value: "yes", label: "Yes" },
+    { value: "no", label: "No" },
+  ];
+
+  const vehicleStatusOptions = [
+    { value: "active", label: "Active" },
+    { value: "inactive", label: "Inactive" },
+  ];
 
   return (
     <Dialog
       classes={{
-        paper: 'm-24',
+        paper: "m-24",
       }}
       {...contactDialog.props}
       onClose={closeComposeDialog}
@@ -138,14 +150,16 @@ function ContactDialog(props) {
       <AppBar position="static" elevation={0}>
         <Toolbar className="flex w-full">
           <Typography variant="subtitle1" color="inherit">
-            {contactDialog.type === 'new' ? 'New Contact' : 'Edit Contact'}
+            {contactDialog.type === "new"
+              ? "New Vehicle"
+              : "Edit Vehicle Information"}
           </Typography>
         </Toolbar>
         <div className="flex flex-col items-center justify-center pb-24">
-          <Avatar className="w-96 h-96" alt="contact avatar" src={avatar} />
-          {contactDialog.type === 'edit' && (
+          {/* <Avatar className="w-96 h-96" alt="contact avatar" src={avatar} /> */}
+          {contactDialog.type === "edit" && (
             <Typography variant="h6" color="inherit" className="pt-8">
-              {name}
+              {plateNumber}
             </Typography>
           )}
         </div>
@@ -155,20 +169,20 @@ function ContactDialog(props) {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col md:overflow-hidden"
       >
-        <DialogContent classes={{ root: 'p-24' }}>
+        <DialogContent classes={{ root: "p-24" }}>
           <div className="flex">
-            <div className="min-w-48 pt-20">
+            {/* <div className="min-w-48 pt-20">
               <Icon color="action">account_circle</Icon>
-            </div>
+            </div> */}
             <Controller
               control={control}
-              name="name"
+              name="brand"
               render={({ field }) => (
                 <TextField
                   {...field}
                   className="mb-24"
-                  label="Name"
-                  id="name"
+                  label="Brand"
+                  id="brand"
                   error={!!errors.name}
                   helperText={errors?.name?.message}
                   variant="outlined"
@@ -180,17 +194,17 @@ function ContactDialog(props) {
           </div>
 
           <div className="flex">
-            <div className="min-w-48 pt-20" />
+            {/* <div className="min-w-48 pt-20" /> */}
 
             <Controller
               control={control}
-              name="lastName"
+              name="model"
               render={({ field }) => (
                 <TextField
                   {...field}
                   className="mb-24"
-                  label="Last name"
-                  id="lastName"
+                  label="Model"
+                  id="model"
                   variant="outlined"
                   fullWidth
                 />
@@ -199,19 +213,21 @@ function ContactDialog(props) {
           </div>
 
           <div className="flex">
-            <div className="min-w-48 pt-20">
+            {/* <div className="min-w-48 pt-20">
               <Icon color="action">star</Icon>
-            </div>
+            </div> */}
             <Controller
               control={control}
-              name="nickname"
+              name="plateNumber"
               render={({ field }) => (
                 <TextField
                   {...field}
                   className="mb-24"
-                  label="Nickname"
-                  id="nickname"
+                  label="Plate number"
+                  id="plateNumber"
                   variant="outlined"
+                  error={!!errors.plateNumber}
+                  helperText={errors?.plateNumber?.message}
                   fullWidth
                 />
               )}
@@ -219,38 +235,71 @@ function ContactDialog(props) {
           </div>
 
           <div className="flex">
-            <div className="min-w-48 pt-20">
+            {/* <div className="min-w-48 pt-20">
               <Icon color="action">phone</Icon>
-            </div>
+            </div> */}
             <Controller
               control={control}
-              name="phone"
+              name="assignedStatus"
               render={({ field }) => (
                 <TextField
                   {...field}
                   className="mb-24"
-                  label="Phone"
-                  id="phone"
+                  label="Assigned Status"
+                  id="assignedStatus"
                   variant="outlined"
                   fullWidth
-                />
+                  select
+                >
+                  {assignedStatusOptions.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
               )}
             />
           </div>
 
           <div className="flex">
-            <div className="min-w-48 pt-20">
+            {/* <div className="min-w-48 pt-20">
               <Icon color="action">email</Icon>
-            </div>
+            </div> */}
             <Controller
               control={control}
-              name="email"
+              name="vehicleStatus"
               render={({ field }) => (
                 <TextField
                   {...field}
                   className="mb-24"
-                  label="Email"
-                  id="email"
+                  label="Vehicle Status"
+                  id="vehicleStatus"
+                  variant="outlined"
+                  fullWidth
+                  select
+                >
+                  {vehicleStatusOptions.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              )}
+            />
+          </div>
+          <div className="flex">
+            {/* <div className="min-w-48 pt-20">
+              <Icon color="action">email</Icon>
+            </div> */}
+            <Controller
+              control={control}
+              name="totalCost"
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  className="mb-24"
+                  label="Total cost"
+                  id="totalCost"
                   variant="outlined"
                   fullWidth
                 />
@@ -259,18 +308,18 @@ function ContactDialog(props) {
           </div>
 
           <div className="flex">
-            <div className="min-w-48 pt-20">
+            {/* <div className="min-w-48 pt-20">
               <Icon color="action">domain</Icon>
-            </div>
+            </div> */}
             <Controller
               control={control}
-              name="company"
+              name="mileage"
               render={({ field }) => (
                 <TextField
                   {...field}
                   className="mb-24"
-                  label="Company"
-                  id="company"
+                  label="Mileage"
+                  id="mileage"
                   variant="outlined"
                   fullWidth
                 />
@@ -278,7 +327,7 @@ function ContactDialog(props) {
             />
           </div>
 
-          <div className="flex">
+          {/* <div className="flex">
             <div className="min-w-48 pt-20">
               <Icon color="action">work</Icon>
             </div>
@@ -363,10 +412,10 @@ function ContactDialog(props) {
                 />
               )}
             />
-          </div>
+          </div> */}
         </DialogContent>
 
-        {contactDialog.type === 'new' ? (
+        {contactDialog.type === "new" ? (
           <DialogActions className="justify-between p-4 pb-16">
             <div className="px-16">
               <Button
