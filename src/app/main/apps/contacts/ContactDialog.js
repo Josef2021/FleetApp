@@ -42,7 +42,6 @@ const defaultValues = {
  * Form Validation Schema
  */
 const schema = yup.object().shape({
-  // name: yup.string().required("You must enter a name"),
   plateNumber: yup.string().required("You must enter a plate number"),
 });
 
@@ -64,9 +63,7 @@ function ContactDialog(props) {
 
   const id = watch("id");
   const plateNumber = watch("plateNumber");
-  // const name = watch("name");
-  // const avatar = watch("avatar");
-
+  
   /**
    * Initialize Dialog with Data
    */
@@ -156,7 +153,6 @@ function ContactDialog(props) {
           </Typography>
         </Toolbar>
         <div className="flex flex-col items-center justify-center pb-24">
-          {/* <Avatar className="w-96 h-96" alt="contact avatar" src={avatar} /> */}
           {contactDialog.type === "edit" && (
             <Typography variant="h6" color="inherit" className="pt-8">
               {plateNumber}
@@ -171,9 +167,6 @@ function ContactDialog(props) {
       >
         <DialogContent classes={{ root: "p-24" }}>
           <div className="flex">
-            {/* <div className="min-w-48 pt-20">
-              <Icon color="action">account_circle</Icon>
-            </div> */}
             <Controller
               control={control}
               name="brand"
@@ -194,8 +187,6 @@ function ContactDialog(props) {
           </div>
 
           <div className="flex">
-            {/* <div className="min-w-48 pt-20" /> */}
-
             <Controller
               control={control}
               name="model"
@@ -213,9 +204,6 @@ function ContactDialog(props) {
           </div>
 
           <div className="flex">
-            {/* <div className="min-w-48 pt-20">
-              <Icon color="action">star</Icon>
-            </div> */}
             <Controller
               control={control}
               name="plateNumber"
@@ -235,9 +223,6 @@ function ContactDialog(props) {
           </div>
 
           <div className="flex">
-            {/* <div className="min-w-48 pt-20">
-              <Icon color="action">phone</Icon>
-            </div> */}
             <Controller
               control={control}
               name="assignedStatus"
@@ -262,9 +247,6 @@ function ContactDialog(props) {
           </div>
 
           <div className="flex">
-            {/* <div className="min-w-48 pt-20">
-              <Icon color="action">email</Icon>
-            </div> */}
             <Controller
               control={control}
               name="vehicleStatus"
@@ -288,9 +270,6 @@ function ContactDialog(props) {
             />
           </div>
           <div className="flex">
-            {/* <div className="min-w-48 pt-20">
-              <Icon color="action">email</Icon>
-            </div> */}
             <Controller
               control={control}
               name="totalCost"
@@ -308,9 +287,6 @@ function ContactDialog(props) {
           </div>
 
           <div className="flex">
-            {/* <div className="min-w-48 pt-20">
-              <Icon color="action">domain</Icon>
-            </div> */}
             <Controller
               control={control}
               name="mileage"
@@ -326,93 +302,6 @@ function ContactDialog(props) {
               )}
             />
           </div>
-
-          {/* <div className="flex">
-            <div className="min-w-48 pt-20">
-              <Icon color="action">work</Icon>
-            </div>
-            <Controller
-              control={control}
-              name="jobTitle"
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  className="mb-24"
-                  label="Job title"
-                  id="jobTitle"
-                  name="jobTitle"
-                  variant="outlined"
-                  fullWidth
-                />
-              )}
-            />
-          </div>
-
-          <div className="flex">
-            <div className="min-w-48 pt-20">
-              <Icon color="action">cake</Icon>
-            </div>
-            <Controller
-              control={control}
-              name="birthday"
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  className="mb-24"
-                  id="birthday"
-                  label="Birthday"
-                  type="date"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="outlined"
-                  fullWidth
-                />
-              )}
-            />
-          </div>
-
-          <div className="flex">
-            <div className="min-w-48 pt-20">
-              <Icon color="action">home</Icon>
-            </div>
-            <Controller
-              control={control}
-              name="address"
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  className="mb-24"
-                  label="Address"
-                  id="address"
-                  variant="outlined"
-                  fullWidth
-                />
-              )}
-            />
-          </div>
-
-          <div className="flex">
-            <div className="min-w-48 pt-20">
-              <Icon color="action">note</Icon>
-            </div>
-            <Controller
-              control={control}
-              name="notes"
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  className="mb-24"
-                  label="Notes"
-                  id="notes"
-                  variant="outlined"
-                  multiline
-                  rows={5}
-                  fullWidth
-                />
-              )}
-            />
-          </div> */}
         </DialogContent>
 
         {contactDialog.type === "new" ? (
