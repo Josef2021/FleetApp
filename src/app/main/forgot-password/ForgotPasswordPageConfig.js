@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { authRoles } from 'app/auth';
 import ForgotPasswordPage from './ForgotPasswordPage';
 

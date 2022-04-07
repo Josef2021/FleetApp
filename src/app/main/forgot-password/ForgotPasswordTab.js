@@ -9,6 +9,7 @@ import TextField from '@mui/material/TextField';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
 import _ from '@lodash';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
 
 /**
  * Form Validation Schema
@@ -23,9 +24,6 @@ const defaultValues = {
 
 function ForgotPasswordTab() {
 
-    const dispatch = useDispatch();
-    const login = useSelector(({ auth }) => auth.login);// ?????
-
     const { control, formState, handleSubmit, reset, setError } = useForm({
         mode: 'onChange',
         defaultValues,
@@ -34,23 +32,15 @@ function ForgotPasswordTab() {
 
     const { isValid, dirtyFields, errors } = formState;
 
-    // function onSubmit() {
-    //     reset(defaultValues);
-    // }
-
-    const formRef = useRef(null);
-
-    useEffect(() => {
-        login.errors.forEach((error) => {
-            setError(error.type, {
-                type: 'manual',
-                message: error.message,
-            });
-        });
-    }, [login.errors, setError]);
-
     function onSubmit(model) {
-        dispatch(submitLoginWithFireBase(model));
+        const auth = getAuth();
+        sendPasswordResetEmail(auth, model.email).then(() => {
+            alert("Plese check your email and enter a new password")
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
+        reset(defaultValues);
     }
 
     return (

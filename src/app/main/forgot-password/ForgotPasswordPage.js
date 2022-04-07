@@ -59,11 +59,11 @@ function ForgotPasswordPage() {
                     SOFT
                   </Typography>
                 </div>
-                <Typography variant="h6" className="mt-16 mb-24 font-semibold text-18 sm:text-24">
-                  Recover your password
-                </Typography>
               </div>
             </motion.div>
+            <Typography variant="h6" className="mt-16 mb-24 font-semibold text-18 sm:text-24">
+              Recover your password
+            </Typography>
             <ForgotPasswordTab />
           </CardContent>
           <div className="flex flex-col items-center justify-center pb-32">
