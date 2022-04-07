@@ -8,7 +8,7 @@ export const submitLogin =
     ({ email, password }) =>
         async (dispatch) => {
             return jwtService
-                .signInWithEmailAndPassword(email, password)
+                .sendPasswordResetEmail(email)
                 .then((user) => {
                     dispatch(setUserData(user));
 
@@ -28,7 +28,7 @@ export const submitLoginWithFireBase =
                 return () => false;
             }
             return firebaseService.auth
-                .signInWithEmailAndPassword(email, password)
+                .sendPasswordResetEmail(email)
                 .then(() => {
                     return dispatch(loginSuccess());
                 })
