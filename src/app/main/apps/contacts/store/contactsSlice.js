@@ -1,12 +1,16 @@
-import { createSlice, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { getUserData } from './userSlice';
+import {
+  createSlice,
+  createAsyncThunk,
+  createEntityAdapter,
+} from "@reduxjs/toolkit";
+import axios from "axios";
+import { getUserData } from "./userSlice";
 
 export const getContacts = createAsyncThunk(
-  'contactsApp/contacts/getContacts',
+  "contactsApp/contacts/getContacts",
   async (routeParams, { getState }) => {
     routeParams = routeParams || getState().contactsApp.contacts.routeParams;
-    const response = await axios.get('/api/contacts-app/contacts', {
+    const response = await axios.get("/api/contacts-app/contacts", {
       params: routeParams,
     });
     const data = await response.data;
@@ -16,9 +20,11 @@ export const getContacts = createAsyncThunk(
 );
 
 export const addContact = createAsyncThunk(
-  'contactsApp/contacts/addContact',
+  "contactsApp/contacts/addContact",
   async (contact, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/add-contact', { contact });
+    const response = await axios.post("/api/contacts-app/add-contact", {
+      contact,
+    });
     const data = await response.data;
 
     dispatch(getContacts());
@@ -28,9 +34,11 @@ export const addContact = createAsyncThunk(
 );
 
 export const updateContact = createAsyncThunk(
-  'contactsApp/contacts/updateContact',
+  "contactsApp/contacts/updateContact",
   async (contact, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/update-contact', { contact });
+    const response = await axios.post("/api/contacts-app/update-contact", {
+      contact,
+    });
     const data = await response.data;
 
     dispatch(getContacts());
@@ -40,27 +48,30 @@ export const updateContact = createAsyncThunk(
 );
 
 export const removeContact = createAsyncThunk(
-  'contactsApp/contacts/removeContact',
+  "contactsApp/contacts/removeContact",
   async (contactId, { dispatch, getState }) => {
-    await axios.post('/api/contacts-app/remove-contact', { contactId });
+    await axios.post("/api/contacts-app/remove-contact", { contactId });
 
     return contactId;
   }
 );
 
 export const removeContacts = createAsyncThunk(
-  'contactsApp/contacts/removeContacts',
+  "contactsApp/contacts/removeContacts",
   async (contactIds, { dispatch, getState }) => {
-    await axios.post('/api/contacts-app/remove-contacts', { contactIds });
+    await axios.post("/api/contacts-app/remove-contacts", { contactIds });
 
     return contactIds;
   }
 );
 
 export const toggleStarredContact = createAsyncThunk(
-  'contactsApp/contacts/toggleStarredContact',
+  "contactsApp/contacts/toggleStarredContact",
   async (contactId, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/toggle-starred-contact', { contactId });
+    const response = await axios.post(
+      "/api/contacts-app/toggle-starred-contact",
+      { contactId }
+    );
     const data = await response.data;
 
     dispatch(getUserData());
@@ -72,9 +83,12 @@ export const toggleStarredContact = createAsyncThunk(
 );
 
 export const toggleStarredContacts = createAsyncThunk(
-  'contactsApp/contacts/toggleStarredContacts',
+  "contactsApp/contacts/toggleStarredContacts",
   async (contactIds, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/toggle-starred-contacts', { contactIds });
+    const response = await axios.post(
+      "/api/contacts-app/toggle-starred-contacts",
+      { contactIds }
+    );
     const data = await response.data;
 
     dispatch(getUserData());
@@ -86,9 +100,12 @@ export const toggleStarredContacts = createAsyncThunk(
 );
 
 export const setContactsStarred = createAsyncThunk(
-  'contactsApp/contacts/setContactsStarred',
+  "contactsApp/contacts/setContactsStarred",
   async (contactIds, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/set-contacts-starred', { contactIds });
+    const response = await axios.post(
+      "/api/contacts-app/set-contacts-starred",
+      { contactIds }
+    );
     const data = await response.data;
 
     dispatch(getUserData());
@@ -100,9 +117,12 @@ export const setContactsStarred = createAsyncThunk(
 );
 
 export const setContactsUnstarred = createAsyncThunk(
-  'contactsApp/contacts/setContactsUnstarred',
+  "contactsApp/contacts/setContactsUnstarred",
   async (contactIds, { dispatch, getState }) => {
-    const response = await axios.post('/api/contacts-app/set-contacts-unstarred', { contactIds });
+    const response = await axios.post(
+      "/api/contacts-app/set-contacts-unstarred",
+      { contactIds }
+    );
     const data = await response.data;
 
     dispatch(getUserData());
@@ -118,29 +138,33 @@ const contactsAdapter = createEntityAdapter({});
 export const { selectAll: selectContacts, selectById: selectContactsById } =
   contactsAdapter.getSelectors((state) => state.contactsApp.contacts);
 
+// this is our slice of redux store
 const contactsSlice = createSlice({
-  name: 'contactsApp/contacts',
+  // name of the slice used for reference
+  name: "contactsApp/contacts",
+  // initial state of the reducer
   initialState: contactsAdapter.getInitialState({
-    searchText: '',
+    searchText: "",
     routeParams: {},
     contactDialog: {
-      type: 'new',
+      type: "new",
       props: {
         open: false,
       },
       data: null,
     },
   }),
+  // reducers contain all actions to mutate the reducer state
   reducers: {
     setContactsSearchText: {
       reducer: (state, action) => {
         state.searchText = action.payload;
       },
-      prepare: (event) => ({ payload: event.target.value || '' }),
+      prepare: (event) => ({ payload: event.target.value || "" }),
     },
     openNewContactDialog: (state, action) => {
       state.contactDialog = {
-        type: 'new',
+        type: "new",
         props: {
           open: true,
         },
@@ -149,7 +173,7 @@ const contactsSlice = createSlice({
     },
     closeNewContactDialog: (state, action) => {
       state.contactDialog = {
-        type: 'new',
+        type: "new",
         props: {
           open: false,
         },
@@ -158,7 +182,7 @@ const contactsSlice = createSlice({
     },
     openEditContactDialog: (state, action) => {
       state.contactDialog = {
-        type: 'edit',
+        type: "edit",
         props: {
           open: true,
         },
@@ -167,7 +191,7 @@ const contactsSlice = createSlice({
     },
     closeEditContactDialog: (state, action) => {
       state.contactDialog = {
-        type: 'edit',
+        type: "edit",
         props: {
           open: false,
         },
@@ -180,12 +204,13 @@ const contactsSlice = createSlice({
     [addContact.fulfilled]: contactsAdapter.addOne,
     [removeContacts.fulfilled]: (state, action) =>
       contactsAdapter.removeMany(state, action.payload),
-    [removeContact.fulfilled]: (state, action) => contactsAdapter.removeOne(state, action.payload),
+    [removeContact.fulfilled]: (state, action) =>
+      contactsAdapter.removeOne(state, action.payload),
     [getContacts.fulfilled]: (state, action) => {
       const { data, routeParams } = action.payload;
       contactsAdapter.setAll(state, data);
       state.routeParams = routeParams;
-      state.searchText = '';
+      state.searchText = "";
     },
   },
 });
