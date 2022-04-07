@@ -33,14 +33,6 @@ function ContactsHeader(props) {
         </Hidden>
 
         <div className="flex items-center">
-          {/* <Icon
-            component={motion.span}
-            initial={{ scale: 0 }}
-            animate={{ scale: 1, transition: { delay: 0.2 } }}
-            className="text-24 md:text-32"
-          >
-            account_box
-          </Icon> */}
           <Typography
             component={motion.span}
             initial={{ x: -20 }}

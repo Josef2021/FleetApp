@@ -70,54 +70,6 @@ function ContactsSidebarContent(props) {
             Add a new vehicle
           </Button>
         </div>
-
-        {/* <List className="pt-0 px-12">
-          <StyledListItem
-            button
-            component={NavLinkAdapter}
-            to="/apps/contacts/all"
-            activeClassName="active"
-          >
-            <Icon className="list-item-icon text-16" color="action">
-              people
-            </Icon>
-            <ListItemText
-              className="truncate"
-              primary="All contacts"
-              disableTypography
-            />
-          </StyledListItem>
-          <StyledListItem
-            button
-            component={NavLinkAdapter}
-            to="/apps/contacts/frequent"
-            activeClassName="active"
-          >
-            <Icon className="list-item-icon text-16" color="action">
-              restore
-            </Icon>
-            <ListItemText
-              className="truncate"
-              primary="Frequently contacted"
-              disableTypography
-            />
-          </StyledListItem>
-          <StyledListItem
-            button
-            component={NavLinkAdapter}
-            to="/apps/contacts/starred"
-            activeClassName="active"
-          >
-            <Icon className="list-item-icon text-16" color="action">
-              star
-            </Icon>
-            <ListItemText
-              className="truncate"
-              primary="Starred contacts"
-              disableTypography
-            />
-          </StyledListItem>
-        </List> */}
       </Paper>
     </div>
   );

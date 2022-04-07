@@ -27,30 +27,6 @@ function ContactsList(props) {
 
   const columns = useMemo(
     () => [
-      // {
-      //   Header: ({ selectedFlatRows }) => {
-      //     const selectedRowIds = selectedFlatRows.map((row) => row.original.id);
-
-      //     return (
-      //       selectedFlatRows.length > 0 && (
-      //         <ContactsMultiSelectMenu selectedContactIds={selectedRowIds} />
-      //       )
-      //     );
-      //   },
-      //   accessor: "avatar",
-      //   Cell: ({ row }) => {
-      //     return (
-      //       <Avatar
-      //         className="mx-8"
-      //         alt={row.original.name}
-      //         src={row.original.avatar}
-      //       />
-      //     );
-      //   },
-      //   className: "justify-center",
-      //   width: 64,
-      //   sortable: false,
-      // },
       {
         Header: "Brand",
         accessor: "brand",
@@ -94,19 +70,6 @@ function ContactsList(props) {
         sortable: false,
         Cell: ({ row }) => (
           <div className="flex items-center">
-            {/* <IconButton
-              onClick={(ev) => {
-                ev.stopPropagation();
-                dispatch(toggleStarredContact(row.original.id));
-              }}
-              size="large"
-            >
-              {user.starred && user.starred.includes(row.original.id) ? (
-                <Icon className="text-yellow-700">star</Icon>
-              ) : (
-                <Icon>star_border</Icon>
-              )}
-            </IconButton> */}
             <IconButton
               onClick={(ev) => {
                 ev.stopPropagation();
