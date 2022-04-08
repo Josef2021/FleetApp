@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import FirebaseLoginTab from './tabs/FirebaseLoginTab';
+import ForgotPasswordTab from './ForgotPasswordTab';
 
 const Root = styled('div')(({ theme }) => ({
   background: `linear-gradient(to right, ${theme.palette.primary.dark} 0%, ${darken(
@@ -27,7 +27,7 @@ const Root = styled('div')(({ theme }) => ({
   },
 }));
 
-function Login() {
+function ForgotPasswordPage() {
 
   return (
     <Root className="flex flex-col flex-auto items-center justify-center flex-shrink-0 p-16 md:p-24">
@@ -61,24 +61,14 @@ function Login() {
                 </div>
               </div>
             </motion.div>
-
-            <FirebaseLoginTab />
+            <Typography variant="h6" className="mt-16 mb-24 font-semibold text-18 sm:text-24">
+              Recover your password
+            </Typography>
+            <ForgotPasswordTab />
           </CardContent>
           <div className="flex flex-col items-center justify-center pb-32">
-            <div>
-              <span className="font-normal mr-8">Don't have an account?</span>
-              <Link className="font-normal" to="/register">
-                Register
-              </Link>
-            </div>
-            <div>
-              <span className="font-normal mr-8">Forgot your password?</span>
-              <Link className="font-normal" to="/forgot-password">
-                Reset Password
-              </Link>
-            </div>
-            <Link className="font-normal mt-8" to="/">
-              Back to Dashboard
+            <Link className="font-normal" to="/login">
+              Go back to login
             </Link>
           </div>
         </Card>
@@ -111,4 +101,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ForgotPasswordPage;

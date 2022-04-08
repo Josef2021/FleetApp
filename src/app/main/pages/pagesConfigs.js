@@ -1,5 +1,5 @@
 import ForgotPassword2PageConfig from './auth/forgot-password-2/ForgotPassword2PageConfig';
-import ForgotPasswordPageConfig from './auth/forgot-password/ForgotPasswordPageConfig';
+import ForgotPasswordPageConfig from '../forgot-password/ForgotPasswordPageConfig'
 import LockPageConfig from './auth/lock/LockPageConfig';
 import LoginPageConfig from './auth/login/LoginPageConfig';
 import Login2PageConfig from './auth/login-2/Login2PageConfig';
