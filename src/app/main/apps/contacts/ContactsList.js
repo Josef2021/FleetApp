@@ -55,8 +55,13 @@ function ContactsList(props) {
         sortable: true,
       },
       {
-        Header: "Total Cost",
-        accessor: "totalCost",
+        Header: "Service Cost",
+        accessor: "serviceCost",
+        sortable: true,
+      },
+      {
+        Header: "Fuel Cost",
+        accessor: "fuelCost",
         sortable: true,
       },
       {

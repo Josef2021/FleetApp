@@ -132,6 +132,7 @@ function ContactDialog(props) {
   const vehicleStatusOptions = [
     { value: 'active', label: 'Active' },
     { value: 'inactive', label: 'Inactive' },
+    { value: 'inShop', label: 'In shop' },
   ];
 
   return (
@@ -272,13 +273,29 @@ function ContactDialog(props) {
           <div className="flex">
             <Controller
               control={control}
-              name='totalCost'
+              name='serviceCost'
               render={({ field }) => (
                 <TextField
                   {...field}
                   className='mb-24'
-                  label='Total cost'
-                  id='totalCost'
+                  label='Service cost'
+                  id='serviceCost'
+                  variant='outlined'
+                  fullWidth
+                />
+              )}
+            />
+          </div>
+          <div className="flex">
+            <Controller
+              control={control}
+              name='fuelCost'
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  className='mb-24'
+                  label='Fuel cost'
+                  id='fuelCost'
                   variant='outlined'
                   fullWidth
                 />

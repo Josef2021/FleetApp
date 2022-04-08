@@ -3,12 +3,14 @@ import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import Input from "@mui/material/Input";
 import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
 import { ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { selectMainTheme } from "app/store/fuse/settingsSlice";
-import { setContactsSearchText } from "./store/contactsSlice";
+import { setContactsSearchText, openNewContactDialog } from "./store/contactsSlice";
+
 
 function ContactsHeader(props) {
   const dispatch = useDispatch();
@@ -42,8 +44,19 @@ function ContactsHeader(props) {
           >
             Vehicles List
           </Typography>
+
         </div>
       </div>
+      <div className="p-24">
+          <Button
+            variant="contained"
+            color="secondary"
+            className="w-full"
+            onClick={(ev) => dispatch(openNewContactDialog())}
+          >
+            Add a new vehicle
+          </Button>
+        </div>
 
       <div className="flex flex-1 items-center justify-center px-8 sm:px-12">
         <ThemeProvider theme={mainTheme}>
