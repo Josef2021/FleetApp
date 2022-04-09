@@ -3,6 +3,7 @@ import appsConfigs from "app/main/apps/appsConfigs";
 import authRoleExamplesConfigs from "app/main/auth/authRoleExamplesConfigs";
 import CallbackConfig from "app/main/callback/CallbackConfig";
 import LoginConfig from "app/main/login/LoginConfig";
+import ForgotPasswordPageConfig from 'app/main/forgot-password/ForgotPasswordPageConfig';
 import LogoutConfig from "app/main/logout/LogoutConfig";
 import pagesConfigs from "app/main/pages/pagesConfigs";
 import RegisterConfig from "app/main/register/RegisterConfig";
@@ -14,7 +15,7 @@ const routeConfigs = [
   ...appsConfigs,
   ...pagesConfigs,
   ...authRoleExamplesConfigs,
-
+  ForgotPasswordPageConfig,
   LogoutConfig,
   LoginConfig,
   RegisterConfig,
