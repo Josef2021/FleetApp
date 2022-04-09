@@ -1,24 +1,26 @@
-import { motion } from 'framer-motion';
-import FuseUtils from '@fuse/utils';
-import Avatar from '@mui/material/Avatar';
-import Icon from '@mui/material/Icon';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import { useMemo, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import ContactsMultiSelectMenu from './ContactsMultiSelectMenu';
-import ContactsTable from './ContactsTable';
+import { motion } from "framer-motion";
+import FuseUtils from "@fuse/utils";
+import Avatar from "@mui/material/Avatar";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import { useMemo, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import ContactsMultiSelectMenu from "./ContactsMultiSelectMenu";
+import ContactsTable from "./ContactsTable";
 import {
   openEditContactDialog,
   removeContact,
   toggleStarredContact,
   selectContacts,
-} from './store/contactsSlice';
+} from "./store/contactsSlice";
 
 function ContactsList(props) {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  const searchText = useSelector(({ contactsApp }) => contactsApp.contacts.searchText);
+  const searchText = useSelector(
+    ({ contactsApp }) => contactsApp.contacts.searchText
+  );
   const user = useSelector(({ contactsApp }) => contactsApp.user);
 
   const [filteredData, setFilteredData] = useState(null);
@@ -26,74 +28,53 @@ function ContactsList(props) {
   const columns = useMemo(
     () => [
       {
-        Header: ({ selectedFlatRows }) => {
-          const selectedRowIds = selectedFlatRows.map((row) => row.original.id);
-
-          return (
-            selectedFlatRows.length > 0 && (
-              <ContactsMultiSelectMenu selectedContactIds={selectedRowIds} />
-            )
-          );
-        },
-        accessor: 'avatar',
-        Cell: ({ row }) => {
-          return <Avatar className="mx-8" alt={row.original.name} src={row.original.avatar} />;
-        },
-        className: 'justify-center',
-        width: 64,
-        sortable: false,
-      },
-      {
-        Header: 'First Name',
-        accessor: 'name',
-        className: 'font-medium',
+        Header: "Brand",
+        accessor: "brand",
+        className: "font-medium",
         sortable: true,
       },
       {
-        Header: 'Last Name',
-        accessor: 'lastName',
-        className: 'font-medium',
+        Header: "Model",
+        accessor: "model",
+        className: "font-medium",
         sortable: true,
       },
       {
-        Header: 'Company',
-        accessor: 'company',
+        Header: "Plate Number",
+        accessor: "plateNumber",
         sortable: true,
       },
       {
-        Header: 'Job Title',
-        accessor: 'jobTitle',
+        Header: "Assigned Status",
+        accessor: "assignedStatus",
         sortable: true,
       },
       {
-        Header: 'Email',
-        accessor: 'email',
+        Header: "Vehicle Status",
+        accessor: "vehicleStatus",
         sortable: true,
       },
       {
-        Header: 'Phone',
-        accessor: 'phone',
+        Header: "Service Cost",
+        accessor: "serviceCost",
         sortable: true,
       },
       {
-        id: 'action',
+        Header: "Fuel Cost",
+        accessor: "fuelCost",
+        sortable: true,
+      },
+      {
+        Header: "Mileage",
+        accessor: "mileage",
+        sortable: true,
+      },
+      {
+        id: "action",
         width: 128,
         sortable: false,
         Cell: ({ row }) => (
           <div className="flex items-center">
-            <IconButton
-              onClick={(ev) => {
-                ev.stopPropagation();
-                dispatch(toggleStarredContact(row.original.id));
-              }}
-              size="large"
-            >
-              {user.starred && user.starred.includes(row.original.id) ? (
-                <Icon className="text-yellow-700">star</Icon>
-              ) : (
-                <Icon>star_border</Icon>
-              )}
-            </IconButton>
             <IconButton
               onClick={(ev) => {
                 ev.stopPropagation();

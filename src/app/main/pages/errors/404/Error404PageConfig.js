@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy } from "react";
 
 const Error404PageConfig = {
   settings: {
@@ -8,8 +8,8 @@ const Error404PageConfig = {
   },
   routes: [
     {
-      path: '/pages/errors/error-404',
-      component: lazy(() => import('./Error404Page')),
+      path: "/pages/errors/error-404",
+      component: lazy(() => import("./Error404Page")),
     },
   ],
 };

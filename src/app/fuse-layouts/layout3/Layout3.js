@@ -2,13 +2,13 @@ import FuseDialog from '@fuse/core/FuseDialog';
 import { styled } from '@mui/material/styles';
 import FuseMessage from '@fuse/core/FuseMessage';
 import FuseSuspense from '@fuse/core/FuseSuspense';
-import SettingsPanel from 'app/fuse-layouts/shared-components/SettingsPanel';
+// import SettingsPanel from 'app/fuse-layouts/shared-components/SettingsPanel';
 import clsx from 'clsx';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import AppContext from 'app/AppContext';
-import FooterLayout3 from './components/FooterLayout3';
+
 import LeftSideLayout3 from './components/LeftSideLayout3';
 import NavbarWrapperLayout3 from './components/NavbarWrapperLayout3';
 import RightSideLayout3 from './components/RightSideLayout3';
@@ -56,9 +56,9 @@ function Layout3(props) {
                 />
               )}
 
-              <div className="sticky top-0 z-99">
+              {/* <div className="sticky top-0 z-99">
                 <SettingsPanel />
-              </div>
+              </div> */}
 
               <div className="flex flex-col flex-auto min-h-0 relative z-10">
                 <FuseDialog />
@@ -67,10 +67,6 @@ function Layout3(props) {
 
                 {props.children}
               </div>
-
-              {config.footer.display && (
-                <FooterLayout3 className={config.footer.style === 'fixed' && 'sticky bottom-0'} />
-              )}
             </main>
           </div>
 

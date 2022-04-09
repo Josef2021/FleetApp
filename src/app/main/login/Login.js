@@ -1,11 +1,11 @@
 import Card from '@mui/material/Card';
 import { styled, darken } from '@mui/material/styles';
 import CardContent from '@mui/material/CardContent';
-// import Tab from '@mui/material/Tab';
-// import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 import { motion } from 'framer-motion';
-// import { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import FirebaseLoginTab from './tabs/FirebaseLoginTab';
 
@@ -73,7 +73,7 @@ function Login() {
             </div>
             <div>
               <span className="font-normal mr-8">Forgot your password?</span>
-              <Link className="font-normal" to="/pages/auth/forgot-password">
+              <Link className="font-normal" to="/forgot-password">
                 Reset Password
               </Link>
             </div>
