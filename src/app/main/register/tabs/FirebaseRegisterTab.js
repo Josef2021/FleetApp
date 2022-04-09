@@ -1,7 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@mui/material/Button';
 import Icon from '@mui/material/Icon';
-import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import { useEffect, useRef, useState } from 'react';
@@ -42,8 +41,6 @@ function FirebaseRegisterTab(props) {
   });
 
   const { isValid, dirtyFields, errors } = formState;
-  const [showPassword, setShowPassword] = useState(false);
-  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
   useEffect(() => {
     authRegister.errors.forEach((error) => {
@@ -125,14 +122,11 @@ function FirebaseRegisterTab(props) {
               error={!!errors.password}
               helperText={errors?.password?.message}
               InputProps={{
-                type: showPassword ? 'text' : 'password',
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton onClick={() => setShowPassword(!showPassword)} size="large">
-                      <Icon className="text-20" color="action">
-                        {showPassword ? 'visibility' : 'visibility_off'}
-                      </Icon>
-                    </IconButton>
+                    <Icon className="text-20" color="action">
+                      vpn_key
+                    </Icon>
                   </InputAdornment>
                 ),
               }}
@@ -154,14 +148,11 @@ function FirebaseRegisterTab(props) {
               error={!!errors.passwordConfirm}
               helperText={errors?.passwordConfirm?.message}
               InputProps={{
-                type: showPasswordConfirm ? 'text' : 'password',
                 endAdornment: (
                   <InputAdornment position="end">
-                    <IconButton onClick={() => setShowPasswordConfirm(!showPasswordConfirm)} size="large">
-                      <Icon className="text-20" color="action">
-                        {showPasswordConfirm ? 'visibility' : 'visibility_off'}
-                      </Icon>
-                    </IconButton>
+                    <Icon className="text-20" color="action">
+                      vpn_key
+                    </Icon>
                   </InputAdornment>
                 ),
               }}

@@ -74,12 +74,12 @@ function ProjectDashboardAppHeader(props) {
               Welcome back, {user.data.displayName}!
             </Typography>
 
-            {/* <div className="flex items-center opacity-60 truncate">
+            <div className="flex items-center opacity-60 truncate">
               <Icon className="text-14 sm:text-24">notifications</Icon>
               <Typography className="text-12 sm:text-14 font-medium mx-4 truncate">
                 You have 2 new messages and 15 new tasks
               </Typography>
-            </div> */}
+            </div>
           </div>
         </div>
         <Hidden lgUp>
@@ -95,7 +95,7 @@ function ProjectDashboardAppHeader(props) {
       </div>
       <div className="flex items-end">
         <div className="flex items-center">
-          {/* <Box
+          <Box
             className={clsx('flex items-center h-40 px-16 text-13 sm:text-16')}
             sx={{
               background: (theme) => lighten(theme.palette.primary.dark, 0.1),
@@ -104,8 +104,8 @@ function ProjectDashboardAppHeader(props) {
             }}
           >
             {_.find(projects, ['id', selectedProject.id]).name}
-          </Box> */}
-          {/* <IconButton
+          </Box>
+          <IconButton
             className="h-40 w-40 p-0"
             sx={{
               background: (theme) => lighten(theme.palette.primary.dark, 0.1),
@@ -119,7 +119,7 @@ function ProjectDashboardAppHeader(props) {
             size="large"
           >
             <Icon>more_horiz</Icon>
-          </IconButton> */}
+          </IconButton>
           <Menu
             id="project-menu"
             anchorEl={selectedProject.menuEl}
