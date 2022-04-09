@@ -10,6 +10,8 @@ import Register3PageConfig from './auth/register-3/Register3PageConfig';
 import RegisterPageConfig from './auth/register/RegisterPageConfig';
 import ResetPassword2PageConfig from './auth/reset-password-2/ResetPassword2PageConfig';
 import ResetPasswordPageConfig from './auth/reset-password/ResetPasswordPageConfig';
+import Error404PageConfig from './errors/404/Error404PageConfig';
+import Error500PageConfig from './errors/500/Error500PageConfig';
 
 const pagesConfigs = [
   LoginPageConfig,
@@ -24,6 +26,8 @@ const pagesConfigs = [
   Register3PageConfig,
   ForgotPassword2PageConfig,
   ResetPassword2PageConfig,
+  Error404PageConfig,
+  Error500PageConfig,
 ];
 
 export default pagesConfigs;
